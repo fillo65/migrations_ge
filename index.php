@@ -12,13 +12,16 @@
   </h2>
   <?php
 
-  include("public-tables/editions.php");
-  // include("public-tables/users.php");
+  /*Loading Files*/
+  // include("public-tables/Editions.php");
+  // include("public-tables/Users.php");
+  include("public-tables/Users_data.php");
 
-  /* --------/final/----------- */
-  echo $editions->upgrade();
-  // echo $users->upgrade($values);
-  /* --------/final/----------- */
+  /*Updating New Database*/
+  // echo $editions->upgrade();
+  // echo $users->upgrade();
+  echo $users_data->upgrade();
   ?>
-  </body>
+
+</body>
 </html>

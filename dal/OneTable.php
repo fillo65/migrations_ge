@@ -41,9 +41,9 @@ class OneTable extends Database{
   function build($arr, $com="'"){
     $str = '';
     foreach ($arr as $val) {
-      $str .= $com . $val .$com. ",";
+      $str .= $com . $val .$com. ", ";
     }
-    return trim($str, ",");
+    return trim($str, ", ");
   }
 
   function setVals($arr){
@@ -51,7 +51,16 @@ class OneTable extends Database{
     foreach ($arr as $row) {
       $pre_data = array();
       foreach ($this->old_keys as $k) {
-        $pre_data[] = $row[$k];
+        if(!is_array($k)){
+          $valor = $row[$k];
+        }else{
+          $valor = '';
+          foreach ($k as $val) {
+            $valor .= preg_replace('/\s*/m', '', $row[$val]);
+            $valor .= " ";
+          }
+        }
+        $pre_data[] = trim($valor);
       }
       $data[] = $pre_data;
     }
@@ -63,10 +72,11 @@ class OneTable extends Database{
     foreach ($this->values as $row) {
       $this->stmt = "INSERT INTO `".$this->new_table."` (".$this->build($this->new_keys, "`").") VALUES ";
       $this->stmt .= "(".$this->build($row).");";
-      if($this->setRecords($this->stmt) == false){
-        $res = false;
-        break;
-      }
+      echo $this->stmt . "<br>";
+      // if($this->setRecords($this->stmt) == false){
+      //   $res = false;
+      //   break;
+      // }
     }
     return ($res) ? "Ok " . $this->new_table : "Algo fue mal ". $this->new_table;
   }
