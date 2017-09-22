@@ -34,12 +34,9 @@ class Database {
 
   function setRecords($stmt){
     $res = false;
-    //
     if($result = $this->new_mysqli->query($stmt)){
-    //   $res = true;
+       $res = true;
     }
-    print_r($this->new_mysqli->error_list);
-    // printf("Errormessage: %s\n",$this->new_mysqli->error_list);
     return $res;
   }
 

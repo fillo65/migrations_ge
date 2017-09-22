@@ -1,21 +1,27 @@
 <?php
 require_once("database.php");
 class Users extends database{
-  public $stmt = "INSERT INTO `users`(`id_user`, `email_user`, `password_user`, `passphrase_user`, `fk_role`) VALUES ";
+  public $stmt;
   function __construct(){
     parent::__construct();
   }
 
-  function getStmt(){
-    $stmt = "SELECT * FROM users";
-    $data = $this->getRecord($stmt);
-    foreach ($data as $row) {
-      $this->stmt .= "(".$row["id_users"].",`".$row["username_users"]."`,`".$row["password_users"]."`,`".$row["passphrase_users"]."`,".($row["fk_id_rols_users"])."), ";
-    }
-    return $this->stmt;
+  function getAll(){
+    $query = "SELECT * FROM users";
+    return $this->getRecord($query);
   }
-  function upgrade($stmt){
-    return $this->setRecords($stmt);
+
+  function upgrade($data){
+    $res = true;
+    foreach ($data as $row) {
+      $this->stmt =  "INSERT INTO `users`(`id_user`, `email_user`, `password_user`, `passphrase_user`, `fk_role`) VALUES ";
+      $this->stmt .= "(".$row["id_users"].",'".$row["username_users"]."','".$row["password_users"]."','".$row["passphrase_users"]."',".($row["fk_id_rols_users"])."); ";
+      if($this->setRecords($this->stmt) == false){
+        $res = false;
+        break;
+      }
+    }
+    return $res;
   }
 
 }
