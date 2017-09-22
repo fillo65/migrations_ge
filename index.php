@@ -11,14 +11,16 @@
     Inicio de la Migracion de DB
   </h2>
   <?php
-
+  set_time_limit(6000);
   /*Loading Files*/
   // include("public-tables/Editions.php");
   // include("public-tables/Users.php");
   // include("public-tables/Users_data.php");
   // include("public-tables/Services.php");
   // include("public-tables/Modules_data.php");
-  include("public-tables/Modules_data.php");
+  // include("public-tables/Courses_students.php");
+  // include("public-tables/Courses_teachers.php");
+  include("public-tables/Courses.php");
 
   /*Updating New Database*/
   // echo $editions->upgrade();
@@ -27,7 +29,9 @@
   // echo $services->upgrade();
   // echo $modules->upgrade();
   // echo $modules_data->upgrade();
-  echo $modules_data->upgrade();
+  // echo $courses_students->upgrade();
+  // echo $courses_teachers->upgrade();
+  echo $courses->upgrade();
 
   ?>
 

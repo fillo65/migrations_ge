@@ -69,6 +69,7 @@ class OneTable extends Database{
 
   function upgrade(){
     $res = true;
+    $i = 0;
     foreach ($this->values as $row) {
       $this->stmt = "INSERT INTO `".$this->new_table."` (".$this->build($this->new_keys, "`").") VALUES ";
       $this->stmt .= "(".$this->build($row).");";
@@ -77,8 +78,9 @@ class OneTable extends Database{
         $res = false;
         break;
       }
+      $i++;
     }
-    return ($res) ? "Ok " . $this->new_table : "Algo fue mal ". $this->new_table;
+    return ($res) ? "Ok " . $this->new_table . " (".$i.")" : "Algo fue mal ". $this->new_table;
   }
 }
 
