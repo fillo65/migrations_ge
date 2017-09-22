@@ -15,12 +15,20 @@
   /*Loading Files*/
   // include("public-tables/Editions.php");
   // include("public-tables/Users.php");
-  include("public-tables/Users_data.php");
+  // include("public-tables/Users_data.php");
+  // include("public-tables/Services.php");
+  // include("public-tables/Modules_data.php");
+  include("public-tables/Modules_data.php");
 
   /*Updating New Database*/
   // echo $editions->upgrade();
   // echo $users->upgrade();
-  echo $users_data->upgrade();
+  // echo $users_data->upgrade();
+  // echo $services->upgrade();
+  // echo $modules->upgrade();
+  // echo $modules_data->upgrade();
+  echo $modules_data->upgrade();
+
   ?>
 
 </body>

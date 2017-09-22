@@ -72,11 +72,11 @@ class OneTable extends Database{
     foreach ($this->values as $row) {
       $this->stmt = "INSERT INTO `".$this->new_table."` (".$this->build($this->new_keys, "`").") VALUES ";
       $this->stmt .= "(".$this->build($row).");";
-      echo $this->stmt . "<br>";
-      // if($this->setRecords($this->stmt) == false){
-      //   $res = false;
-      //   break;
-      // }
+      // echo $this->stmt . "<br>";
+      if($this->setRecords($this->stmt) == false){
+        $res = false;
+        break;
+      }
     }
     return ($res) ? "Ok " . $this->new_table : "Algo fue mal ". $this->new_table;
   }
