@@ -11,18 +11,14 @@
     Inicio de la Migracion de DB
   </h2>
   <?php
-  /* ------------------- */
-  require_once("dal/users.php");
-  $users = new Users();
-  $data = $users->getAll();
-  echo ($users->upgrade($data) == true) ? "ok Users" : "Algo fue mal" ;
-  /* --------/----------- */
-  require_once("dal/users.php");
-  $users = new Users();
-  $data = $users->getAll();
-  echo ($users->upgrade($data) == true) ? "ok Users" : "Algo fue mal" ;
-  /* --------/----------- */
-  ?>
 
-</body>
+  include("public-tables/editions.php");
+  // include("public-tables/users.php");
+
+  /* --------/final/----------- */
+  echo $editions->upgrade();
+  // echo $users->upgrade($values);
+  /* --------/final/----------- */
+  ?>
+  </body>
 </html>

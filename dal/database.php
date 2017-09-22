@@ -33,10 +33,12 @@ class Database {
   }
 
   function setRecords($stmt){
+    // echo $stmt;
     $res = false;
     if($result = $this->new_mysqli->query($stmt)){
-       $res = true;
+      $res = true;
     }
+    // echo $this->new_mysqli->error;
     return $res;
   }
 
