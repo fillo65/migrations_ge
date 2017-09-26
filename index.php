@@ -17,10 +17,14 @@
   // include("public-tables/Users.php");
   // include("public-tables/Users_data.php");
   // include("public-tables/Services.php");
+  // include("public-tables/Modules.php");
   // include("public-tables/Modules_data.php");
   // include("public-tables/Courses_students.php");
   // include("public-tables/Courses_teachers.php");
-  include("public-tables/Courses.php");
+  // include("public-tables/Courses.php");
+  // include("public-tables/Courses_editions.php");
+  // include("public-tables/Calendars_events.php");
+  // include("public-tables/Calendars.php");
 
   /*Updating New Database*/
   // echo $editions->upgrade();
@@ -31,7 +35,10 @@
   // echo $modules_data->upgrade();
   // echo $courses_students->upgrade();
   // echo $courses_teachers->upgrade();
-  echo $courses->upgrade();
+  // echo $courses->upgrade();
+  // echo $courses_editions->upgrade();
+  // echo $calendars_events->upgrade();
+  // echo $calendars->upgrade();
 
   ?>
 

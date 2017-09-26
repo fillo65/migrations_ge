@@ -15,7 +15,7 @@ $courses->setNewKeys($new_keys);
 /*Getting data from old DB*/
 $data = $courses->getAll("ORDER BY id_aula");
 
-/*Setting Values*/
+/*Setting Values*/ 
 $courses->setVals($data);
 
 /*Setting Keys=>Values to New DB => $object->upgrade*/
