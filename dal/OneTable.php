@@ -80,7 +80,7 @@ class OneTable extends Database{
       }
       $i++;
     }
-    return ($res) ? "Ok " . $this->new_table . " (".$i.")" : "Algo fue mal ". $this->new_table;
+    return ($res) ? "Ok " . $this->new_table . " (".$i.") <br>" : "Algo fue mal ". $this->new_table;
   }
 }
 
